@@ -3,12 +3,21 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
 
   setup do
-    @user = User.new(name: "Example User", email: "user@example.com" )
+    @user = User.new( name: "Example User", 
+                      email: "user@example.com",
+                      password: "foobar",
+                      password_confirmation: "foobar" 
+                    )
   end
 
   test "user" do
     assert_respond_to(@user, :name )
     assert_respond_to(@user, :email )
+    assert_respond_to(@user, :password_digest )
+    assert_respond_to(@user, :password )
+    assert_respond_to(@user, :password_confirmation )
+    assert_respond_to(@user, :authenticate )
+
     assert @user.valid?
   end
 
@@ -41,7 +50,43 @@ class UserTest < ActiveSupport::TestCase
     refute @user.valid?
   end
 
+  test "when password is not present" do
+    @user.password = @user.password_confirmation = " "
+    assert @user.invalid?
+  end
 
+  test "when password doesn't match confirmation" do
+    @user.password_confirmation = "mismatch"
+    assert @user.invalid?
+  end
 
+  test "when password confirmation is nil" do
+    @user.password = @user.password_confirmation = nil
+    assert @user.invalid?
+  end
 
+  test "when password confirmation by itself is nil" do
+    @user.password_confirmation = nil
+    assert @user.invalid?
+  end
+
+  test "return value of authenticate method with valid password" do
+    @user.save
+    found_user = User.find_by_email(@user.email)
+    assert_equal found_user.authenticate(@user.password), @user.authenticate(@user.password)
+  end
+
+  test "with invalid password" do
+    @user.save
+    found_user = User.find_by_email(@user.email)
+    user_for_invalid_password = found_user.authenticate("invalid")
+
+    assert_not_equal user_for_invalid_password, @user.password
+    assert user_for_invalid_password == false
+  end
+
+  test "with a password that's too short" do
+    @user.password = @user.password_confirmation = "a" * 5
+    assert @user.invalid?
+  end
 end
