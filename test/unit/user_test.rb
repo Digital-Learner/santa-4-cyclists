@@ -17,4 +17,9 @@ class UserTest < ActiveSupport::TestCase
     assert @user.invalid?, "User has no name"
   end
 
+  test "when user name is too long" do
+    @user.name = "a" * 26
+    assert @user.invalid?, "User name is too long (25 chars max)"
+  end
+
 end
