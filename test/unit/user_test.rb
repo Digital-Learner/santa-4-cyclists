@@ -22,4 +22,11 @@ class UserTest < ActiveSupport::TestCase
     assert @user.invalid?, "User name is too long (25 chars max)"
   end
 
+  test "when email is not present" do
+    @user.email = nil
+    refute @user.valid?    
+    assert @user.errors[:email].include? "can't be blank"
+    assert @user.errors[:email].any?
+  end
+
 end

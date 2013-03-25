@@ -3,4 +3,6 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true,
                    length: { maximum: 25 }
+
+  validates :email, presence: true
 end
