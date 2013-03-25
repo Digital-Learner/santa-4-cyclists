@@ -9,6 +9,12 @@ class UserTest < ActiveSupport::TestCase
   test "user" do
     assert_respond_to(@user, :name )
     assert_respond_to(@user, :email )
+    assert @user.valid?
+  end
+
+  test "when name is not present" do
+    @user.name = ""
+    assert @user.invalid?, "User has no name"
   end
 
 end
