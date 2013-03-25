@@ -34,4 +34,14 @@ class UserTest < ActiveSupport::TestCase
     refute @user.valid?
   end
 
+  test "when email already assigned to existing user" do
+    user_with_same_email = @user.dup
+    user_with_same_email.email = @user.email.upcase
+    user_with_same_email.save
+    refute @user.valid?
+  end
+
+
+
+
 end
