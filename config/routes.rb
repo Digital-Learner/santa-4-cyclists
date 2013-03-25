@@ -3,8 +3,10 @@ Santa4Cyclists::Application.routes.draw do
   # first created -> highest priority.
 
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
   get "/registration", to: 'users#new'
+  get '/login',        to: 'sessions#new'
 
 
   # Sample of regular route:

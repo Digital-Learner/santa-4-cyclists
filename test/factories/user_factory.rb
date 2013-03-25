@@ -15,8 +15,8 @@ class UserFactory
   def self.user_with_non_matching_password
   end
 
-  def self.ten_users
-    Array.new(10) { user }
-  end
+  # def self.ten_users
+  #   Array.new(10) { user }
+  # end
   
 end
