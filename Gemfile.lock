@@ -80,6 +80,8 @@ GEM
       em-websocket (>= 0.2.0)
       guard (>= 1.5.0)
       multi_json (~> 1.0)
+    guard-rails (0.4.0)
+      guard (>= 0.2.2)
     guard-test (0.8.0)
       guard (>= 1.1)
       test-unit (~> 2.2)
@@ -194,6 +196,7 @@ DEPENDENCIES
   debugger
   guard
   guard-livereload
+  guard-rails
   guard-test
   jquery-rails
   launchy

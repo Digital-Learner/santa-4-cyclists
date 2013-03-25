@@ -49,6 +49,7 @@ group :development do
   gem 'taps'
   gem 'guard'
   gem 'guard-livereload', :require => false
+  gem 'guard-rails'  
   # Added for Guard
   gem 'rb-inotify', :require => false
   gem 'rb-fsevent', :require => false
