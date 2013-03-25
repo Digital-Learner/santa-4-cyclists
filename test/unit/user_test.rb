@@ -29,4 +29,9 @@ class UserTest < ActiveSupport::TestCase
     assert @user.errors[:email].any?
   end
 
+  test "when email does not contain '@' " do
+    @user.email = "bob_at_gmail.com"
+    refute @user.valid?
+  end
+
 end

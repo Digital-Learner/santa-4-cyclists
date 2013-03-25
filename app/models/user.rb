@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
                    length: { maximum: 25 }
 
   validates :email, presence: true
+  validates_format_of :email, :with => /@/
 end
