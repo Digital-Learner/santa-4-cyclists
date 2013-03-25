@@ -2,6 +2,8 @@ Santa4Cyclists::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
+  resources :users
+
   get "/registration", to: 'users#new'
 
 
