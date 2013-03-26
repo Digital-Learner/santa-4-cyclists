@@ -18,9 +18,14 @@ class SessionsControllerTest < ActionController::TestCase
     assert_redirected_to :controller => :users, :action => :show, :id => @user.id
   end
 
-  # test "user can logout" do
-
-  # end
+  test "user can logout" do
+    @user = UserFactory.user
+    post :create, { :session => { :email => @user.email, :password => @user.password } }
+    assert_equal @user.id, session[:user_id]
+    delete :destroy, { :id => @user }
+    refute session[:user_id]
+    assert_redirected_to root_url
+  end
 
 
 end
