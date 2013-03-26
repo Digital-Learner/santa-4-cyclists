@@ -28,11 +28,17 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to user_path(assigns(:user))
   end
 
-  # test "user can edit their settings" do
-  #   self.login_user
-  #   assert_equal @test_user.id, session[:user_id]
+  test "anonymous users cannot edit any users" do
+    put :update, {:id => 5}
+    assert_redirected_to root_path
+  end
 
-
-  # end
+  test "user can update their settings" do
+    assert @test_user
+    put :update, { id: @test_user.id, user: {email: "kungfoo@example.com"} }, {:user_id => @test_user.id}
+    assert_redirected_to user_path(@test_user)
+    # @test_user.reload
+    assert_equal "kungfoo@example.com", User.find(@test_user.id).email
+  end
 
 end
