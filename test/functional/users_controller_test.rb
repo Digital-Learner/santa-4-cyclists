@@ -41,4 +41,16 @@ class UsersControllerTest < ActionController::TestCase
     assert_equal "kungfoo@example.com", User.find(@test_user.id).email
   end
 
+  test "user can delete their profile" do
+    assert @test_user
+    assert_difference('User.count', -1) do
+      delete :destroy, { :id => @test_user.id } , {:user_id => @test_user.id}
+    end
+  end
+
+  test "anonymous users cannot delete any users" do
+    delete :destroy, { id: 5 }
+    assert_redirected_to root_path
+  end
+
 end

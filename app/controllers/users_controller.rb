@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
 
-  before_filter :authenticate, :only => [:update]
+  before_filter :authenticate, :only => [ :update, :destroy ]
+
+  def index
+    @users = User.all
+  end
 
   def show
     @user = User.find(params[:id])
@@ -38,6 +42,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    #  make sure this user matches the current user
+    redirect_to users_path unless @user.id == current_user.id
+      @user.delete
+      flash[:success] = "profile deleted"
+      session[:user_id] = nil
+      redirect_to root_url
+    # end
+
+  end
 end
 
 
