@@ -4,6 +4,8 @@
       <li>The Cyclist in your Life</li>
       <% if current_user %>
         <li><%= link_to "Get me outta ere! (Logout)", logout_path %></li>
+        <li><%= link_to "My Profile", user_path(current_user)%></li>
+        <li><%= link_to "Settings", edit_user_path(current_user)%></li>
       <% else %>
         <li><%= link_to "Registration", registration_path %></li>
         <li><%= link_to "I want in! (Login)", login_path %></li>

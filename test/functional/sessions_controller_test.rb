@@ -14,8 +14,8 @@ class SessionsControllerTest < ActionController::TestCase
     # assert the user is logged in
     assert_equal @user.id, session[:user_id]
     # assert a redirect to
-    # assert_redirected_to user_path(assigns(:user)) <==== Ask why this doesn't work
-    assert_redirected_to :controller => :users, :action => :show, :id => @user.id
+    assert_redirected_to user_path(assigns(:user)) #<==== Ask why this doesn't work
+    # assert_redirected_to :controller => :users, :action => :show, :id => @user.id
   end
 
   test "user can logout" do
