@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_email(params[:session][:email].downcase)
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
+      system("say 'Welcome to Santa 4 Cyclists, you yuletide lycra lover!'")
       redirect_to @user
     else
       flash[:error] = "Invalid email/password combination"
@@ -17,6 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    system("say 'Bye bye, come back to Santa 4 Cyclists soon!'")
     redirect_to root_url
   end
 end

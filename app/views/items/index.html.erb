@@ -1,0 +1,35 @@
+<h1>Listing items</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Flag</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+ <% @items.each do |l| %>
+  <%#=h l.name %>
+    <% if l.flag == false  %>
+   <% ad_builder(l.name)%>
+   <p><%= @amazon_list.count %> items were returned in the <%= l.name %> search</p>
+   <% @amazon_list[1...5].each do |t| %>
+    <div>
+       <img src="<%= t['pic']%>" >
+       <%= link_to t['title'], t['url'].to_s %>
+       <%= t['price']%>
+     </div>
+   <%end%>
+    <%end%>
+<br>
+<hr>
+<% end %>
+
+</table>
+
+<br />
+
+<%= link_to 'New Item', new_item_path %>
+
+<% system("say 'Dude! You fucked up'") %>

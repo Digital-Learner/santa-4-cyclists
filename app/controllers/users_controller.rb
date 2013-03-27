@@ -46,6 +46,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     #  make sure this user matches the current user
     redirect_to users_path unless @user.id == current_user.id
+    system("say 'Are you sure about that!'")
       @user.delete
       flash[:success] = "profile deleted"
       session[:user_id] = nil

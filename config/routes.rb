@@ -1,9 +1,13 @@
 Santa4Cyclists::Application.routes.draw do
+  resources :items
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :products
 
   get "/registration", to: 'users#new'
   get '/login',        to: 'sessions#new'

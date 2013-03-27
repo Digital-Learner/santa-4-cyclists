@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.2.12'
 
@@ -50,7 +50,7 @@ group :development do
   gem 'guard'
   gem 'guard-livereload', :require => false
   gem 'rack-livereload'
-  gem 'guard-rails'  
+  gem 'guard-rails'
   # Added for Guard
   gem 'rb-inotify', :require => false
   gem 'rb-fsevent', :require => false
@@ -60,3 +60,6 @@ end
 group :tools do
   gem 'guard-test'
 end
+
+gem 'ruby-aaws'#, :require => ["amazon/aws", ""]
+
