@@ -1,0 +1,20 @@
+nav ul li {
+  display: inline-block;
+  width: auto;
+  font-weight: bold;
+  font-size: 30px;
+  border: 5px solid white;
+  // margin: 2.5px 0;
+  margin: 0 2.5px;
+  padding: 15px 10px;
+  background-color: white;
+  // opacity: 1;
+  color: blue;
+}
+
+nav {
+  background-color: black;
+  border: 5px solid red;
+  color: yellow;
+  opacity: 0.45;
+}
