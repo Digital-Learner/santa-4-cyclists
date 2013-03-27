@@ -6,7 +6,10 @@ class ApplicationController < ActionController::Base
   protected
 
     def authenticate
-      redirect_to root_path unless current_user
+      unless current_user
+        flash[:notice] = "Please login to complete your request"
+        redirect_to login_path
+      end
     end
 
     def current_user

@@ -1,7 +1,7 @@
 <header class="master-header">
   <nav>
     <ul>
-      <li>The Cyclist in your Life</li>
+      <li><%= link_to "The Cyclist in your Life", root_url %></li>
       <% if current_user %>
         <li><%= link_to "Get me outta ere! (Logout)", logout_path %></li>
         <li><%= link_to "My Profile", user_path(current_user)%></li>

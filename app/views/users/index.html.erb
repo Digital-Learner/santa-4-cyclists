@@ -1,5 +1,9 @@
 <h1> All Users </h1>
 
-<%@users.each do |user| %>
-  <%=user.name%> <%=link_to "delete", user, method: :delete, confirm: "really?" %>
-<%end%>
+<ul>
+  <%@users.each do |user| %>
+    <li>
+      <%= link_to "#{user.name}", user %> <%=link_to "delete", user, method: :delete, confirm: "really?" %>
+    </li>
+  <%end%>
+</ul>
