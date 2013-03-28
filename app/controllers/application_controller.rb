@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   include Amazon::AWS
   include Amazon::AWS::Search
 
-  after_filter :check_with_amazon, :only => [:create, :update]
+  # after_filter :check_with_amazon, :only => [:create, :update]
 
   helper_method :current_user
 

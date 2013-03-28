@@ -103,13 +103,7 @@ form {
 
 /* images */
 
-#pulling-santa {
-  width: auto;
-  height: 180px;
-  margin: 10px 0;
-}
-
 img.align-center {
-  // display: block;
-  text-align: center;
+  display: block;
+  margin: 0 auto;
 }
