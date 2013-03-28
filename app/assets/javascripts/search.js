@@ -5,11 +5,13 @@ $(function() {
 
   // });
   $('.amazon_list .btn').click(function() {
-    $.post('/items', {}, function(data) {
-    url: $('a').html(data);
-  });
+    $.post('/items', { item: { name: $('this').val() } })
+    .done(function(data) {
+      alert('New feature coming soon' + $('a').val());
+    });
   });
 
+    // url: $('a').html(data);
 
 })
 

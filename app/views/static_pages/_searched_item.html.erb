@@ -4,7 +4,7 @@
 <%# ad_builder(@searched_item.name)%>
 <% @amazon_list.each_with_index do |t, i| %>
   <div class="amazon_list">
-    <%= link_to(image_tag(t['pic']), t['url'].to_s) %>
+    <%= link_to(image_tag(t['pic']), t['url'].to_s, id: "#{i.to_s}") %>
     <%= t['title'] %>
     <%= t['price']%>
     <%= link_to "+ Santa's Saddlebag", '#', class: "btn", id: "#{i.to_s}" %>
