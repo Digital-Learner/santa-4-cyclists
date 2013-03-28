@@ -61,5 +61,5 @@ group :tools do
   gem 'guard-test'
 end
 
-gem 'ruby-aaws'#, :require => ["amazon/aws", ""]
+gem 'ruby-aaws'#, :git => 'git@github.com/kirby00/ruby-aaws.git'
 

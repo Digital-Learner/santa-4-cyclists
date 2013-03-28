@@ -7,7 +7,8 @@ module ItemsHelper
   def ad_builder(lookup_item)
     is = ItemSearch.new( 'All', { 'Keywords' => lookup_item } )
     rg = ResponseGroup.new( 'Medium' )
-    req = Request.new #(ENV['AWS_SECRET_KEY'])
+    # debugger
+    req = Request.new#(ENV['AWS_KEY_ID'])
     req.locale = 'us'
     resp = req.search( is, rg )
     amaz_items = resp.item_search_response.items.item

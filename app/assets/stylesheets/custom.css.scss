@@ -8,23 +8,19 @@ body {
   height: 550px;
   border: 5px solid black;
   background-color: rgba(51, 51, 51, 0.41);
-  // opacity: .85;
   padding: 10px;
   margin-top: 15px;
-  // position: absolute;
   margin-left: 0px;
-  // z-index: 90;
 
   .inner-container {
     border: 5px solid #fff;
     width: auto;
-    // height: 100%;
+    height: 90%;
     padding: 10px;
     margin: 10px 5px;
-    // z-index: 9;
-    // color: red;
-    background-color: #000;
-    // opacity: 1;
+    background-color: rgb(138, 29, 29);
+    color: white;
+    vertical-align: center;
   }
 
 }
@@ -65,4 +61,55 @@ form {
     // margin-right: -250px;
     // padding-left: 100px;
   }
+}
+
+/* Countdown timer till pressie time! */
+
+#countdown_dashboard {
+  height: 110px;
+  margin-top: 65px;
+}
+
+.dash {
+  width: 110px;
+  height: 114px;
+  background: transparent url('../images/dash.png') 0 0 no-repeat;
+  float: left;
+  margin-left: 20px;
+  position: relative;
+}
+
+.dash .digit {
+  font-size: 55pt;
+  font-weight: bold;
+  float: left;
+  width: 55px;
+  text-align: center;
+  font-family: Times;
+  color: rgb(253, 251, 250);
+  position: relative;
+}
+
+.dash_title {
+  position: absolute;
+  display: block;
+  bottom: 0px;
+  right: 6px;
+  font-size: 11pt;
+  color: rgb(253, 251, 250);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* images */
+
+#pulling-santa {
+  width: auto;
+  height: 180px;
+  margin: 10px 0;
+}
+
+img.align-center {
+  // display: block;
+  text-align: center;
 }
