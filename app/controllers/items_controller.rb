@@ -2,10 +2,10 @@ class ItemsController < ApplicationController
 
   # require 'amazon/aws'
   # require 'amazon/aws/search'
-  include Amazon::AWS
-  include Amazon::AWS::Search
+  # include Amazon::AWS
+  # include Amazon::AWS::Search
 
-  after_filter :check_with_amazon, :only => [:create, :update]
+  # after_filter :check_with_amazon, :only => [:create, :update]
 
   # GET /items
   # GET /items.json
@@ -90,20 +90,20 @@ class ItemsController < ApplicationController
   end
 
 
-  def check_with_amazon
-    @check=@item.name
-    begin
-      is = ItemSearch.new( 'All', { 'Keywords' => @check } )
-      rg = ResponseGroup.new( 'Medium' )
-      req = Request.new
-      req.locale = 'us'
-      resp = req.search( is, rg )
-      items = resp.item_search_response.items.item
-    rescue
-      if Amazon::AWS::Error
-        @item.flag = 'false'
-        @item.save
-      end
-    end
-  end
+  # def check_with_amazon
+  #   @check=@item.name
+  #   begin
+  #     is = ItemSearch.new( 'All', { 'Keywords' => @check } )
+  #     rg = ResponseGroup.new( 'Medium' )
+  #     req = Request.new
+  #     req.locale = 'us'
+  #     resp = req.search( is, rg )
+  #     items = resp.item_search_response.items.item
+  #   rescue
+  #     if Amazon::AWS::Error
+  #       @item.flag = 'false'
+  #       @item.save
+  #     end
+  #   end
+  # end
 end

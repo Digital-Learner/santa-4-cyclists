@@ -12,6 +12,7 @@ Santa4Cyclists::Application.routes.draw do
   get "/registration", to: 'users#new'
   get '/login',        to: 'sessions#new'
   get '/logout',       to: 'sessions#destroy'
+  get '/search',       to: 'static_pages#search'
 
 
   # Sample of regular route:

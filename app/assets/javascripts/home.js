@@ -3,8 +3,8 @@
 jQuery(document).ready(function() {
     $('#countdown_dashboard').countDown({
         targetOffset: {
-            'day':      28,
-            'month':    3,
+            'day':      1,
+            'month':    1,
             'year':     2013,
             'hour':     0,
             'min':      0,
