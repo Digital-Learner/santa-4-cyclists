@@ -12,24 +12,24 @@ class StaticPagesController < ApplicationController
 
   end
 
-  protected
+  # protected
 
-    def searched_for_item_check_with_amazon
-      @check=@searched_item
-      # items = []
-      begin
-        is = ItemSearch.new( 'All', { 'Keywords' => @check } )
-        rg = ResponseGroup.new( 'Medium' )
-        req = Request.new
-        req.locale = 'us'
-        resp = req.search( is, rg )
-        items = resp.item_search_response.items.item
-        # items = resp.item_search_response.items.item
-        redirect_to @item
-      rescue
-        if Amazon::AWS::Error
+  #   def searched_for_item_check_with_amazon
+  #     @check=@searched_item
+  #     # items = []
+  #     begin
+  #       is = ItemSearch.new( 'All', { 'Keywords' => @check } )
+  #       rg = ResponseGroup.new( 'Medium' )
+  #       req = Request.new
+  #       req.locale = 'us'
+  #       resp = req.search( is, rg )
+  #       items = resp.item_search_response.items.item
+  #       # items = resp.item_search_response.items.item
+  #       redirect_to @item
+  #     rescue
+  #       if Amazon::AWS::Error
 
-        end
-      end
-    end
+  #       end
+  #     end
+  #   end
 end
