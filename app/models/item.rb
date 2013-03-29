@@ -10,5 +10,7 @@
 #
 
 class Item < ActiveRecord::Base
-  attr_accessible :flag, :name, :url
+  attr_accessible :flag, :name, :url, :user_id
+
+  belongs_to :user
 end
