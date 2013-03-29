@@ -5,9 +5,9 @@ $(function() {
 
   // });
   $('.amazon_list .btn').click(function() {
-    $.post('/items', { item: { name: $('this').val() } })
+    $.post('/items', { item: { name: $('a').val() } })
     .done(function(data) {
-      alert('New feature coming soon' + $('a').val());
+      alert('New feature coming soon ' + $('.title').text());
     });
   });
 

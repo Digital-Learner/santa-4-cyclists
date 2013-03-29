@@ -1,13 +1,17 @@
 <h1>Results for <%= @searched_item %>: </h1>
 
 <p><%= @amazon_list.count %> items were returned from your search</p>
-<%# ad_builder(@searched_item.name)%>
-<% @amazon_list.each_with_index do |t, i| %>
-  <div class="amazon_list">
-    <%= link_to(image_tag(t['pic']), t['url'].to_s, id: "#{i.to_s}") %>
-    <%= t['title'] %>
-    <%= t['price']%>
-    <%= link_to "+ Santa's Saddlebag", '#', class: "btn", id: "#{i.to_s}" %>
-  </div>
-<%end%>
+
+<ul>
+  <% @amazon_list.each_with_index do |t, i| %>
+    <div class="amazon_list" id="<%= i %>">
+      <li class="name"><%= t['title'] %></li>
+      <li class="pic"><%= link_to(image_tag(t['pic'], id: "#{i.to_s}", class: "align-center"), t['url'].to_s) %></li>
+      <li class="price">Price: <%= t['price']%></li>
+      <div class="add">
+        <%= link_to "+ Santa's Saddlebag", '#', class: "btn", id: "#{i.to_s}" %>
+      </div>
+    </div>
+  <%end%>
+</ul>
 
