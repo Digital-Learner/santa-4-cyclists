@@ -11,23 +11,20 @@ ul {
     color: black;
     float: left;
     li {
-      // margin: 8px 0;
       color: red;
-      // border: 1px double gray;
-      div {
-        // border: 3px solid purple;
-      }
     }
     li.pic {
-      // border: 1px solid black;
       margin: 5%;
     }
   }
 }
 
-div.add {
-  padding-bottom: 12px;
-  padding-top: 3px;
-  margin-top: 8px;
-  width: auto;
+div.add .btn-to-saddlebag {
+  padding: 12px 3px 12px 3px;
+  display: block;
+  margin: 10px auto 0 auto;
+  webkit-border-radius: 0;
+  moz-border-radius: 0;
+  o-border-radius: 0;
+  border-radius: 0;
 }
