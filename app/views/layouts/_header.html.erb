@@ -3,12 +3,12 @@
     <ul>
       <li><%= link_to "The Cyclist in your Life", root_url %></li>
       <% if current_user %>
-        <li><%= link_to "Get me outta ere! (Logout)", logout_path %></li>
+        <li><%= link_to "Get me outta ere! (Logout)", logout_path, class: "logged_in" %></li>
         <li><%= link_to "My Profile", user_path(current_user)%></li>
         <li><%= link_to "Settings", edit_user_path(current_user)%></li>
       <% else %>
-        <li><%= link_to "Registration", registration_path %></li>
-        <li><%= link_to "I want in! (Login)", login_path %></li>
+        <li><%= link_to "Registration", registration_path, class: "registration" %></li>
+        <li><%= link_to "I want in! (Login)", login_path, class: "not_logged_in" %></li>
       <% end %>
     </ul>
   </nav>
