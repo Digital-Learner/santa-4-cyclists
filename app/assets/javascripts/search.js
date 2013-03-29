@@ -1,17 +1,11 @@
 $(function() {
-
-  // $('.amazon_list .btn').click(function() {
-  //   alert('Sorry you cannot save this to your list currently, its a new feature coming soon');
-
-  // });
-  $('.amazon_list .btn').click(function() {
-    $.post('/items', { item: { name: $('a').val() } })
+  $('.amazon_list .btn-to-saddlebag').click(function(event) {
+      // alert('New feature coming soon ' + $(this).parent().parent().find('li.url input').val());
+    $.post('/items', { item: { name: $(this).parents('.amazon_list').find('li.name').text(), url: $(this).parent().parent().find('li.url input').val() } })
     .done(function(data) {
-      alert('New feature coming soon ' + $('.title').text());
+      alert('New feature coming soon ' + $(event.target).parents('.amazon_list').find('li.name').text());
+      // alert('New feature coming soon ' + data([:item][:name]));
     });
   });
-
-    // url: $('a').html(data);
-
 })
 
