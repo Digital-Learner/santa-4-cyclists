@@ -4,6 +4,8 @@ $(function() {
     $.post('/items', { item: { name: $(this).parents('.amazon_list').find('li.name').text(), url: $(this).parent().parent().find('li.url input').val() } })
     .done(function(data) {
       alert('New feature coming soon ' + $(event.target).parents('.amazon_list').find('li.name').text());
+      // how to redirect, remember to make it relative with a '/'
+      // window.location = '/login'
       // alert('New feature coming soon ' + data([:item][:name]));
     });
   });
