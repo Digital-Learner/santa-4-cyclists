@@ -16,11 +16,15 @@
 //= require_tree .
 
 $(function(){
+  $( "#dialog-form" ).dialog({
+    autoOpen: false,
+    height: 400,
+    width: 350,
+    modal: true,
+  });
   $('.registration').click(function(e) {
     e.preventDefault();
-    $( "#modal-registration" ).dialog({
-      height: 140,
-      modal: true
-    });
+    $( "#dialog-form" ).dialog("open");
+
   });
 });
