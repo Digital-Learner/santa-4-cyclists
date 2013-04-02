@@ -8,7 +8,11 @@ class StaticPagesController < ApplicationController
   def search
     @searched_item = params[:q]
     ad_builder(@searched_item)
-    render '_searched_item'#, :local @
+    render '_searched_item'#, :local @ 
+    # currently there is no persistance of user searches,
+    # only items selected. We probably want to detect if a user is signed in at this point
+    # if they are not then we want to save their search and get them to signin
+    # then redirect them to the page/search they were preforming
 
   end
 

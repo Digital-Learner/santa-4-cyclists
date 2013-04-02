@@ -18,7 +18,8 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    system("say 'Bye bye, come back to Santa 4 Cyclists soon!'")
+    system("say -v 'Vicki' 'Bye bye, come back to Santa 4 Cyclists soon!'")
+    # Check that say is correct
     redirect_to root_url
   end
 end

@@ -7,6 +7,8 @@
 #  flag       :boolean          default(FALSE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  url        :string(255)
+#  user_id    :integer
 #
 
 class Item < ActiveRecord::Base

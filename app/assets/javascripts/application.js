@@ -12,4 +12,20 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require_tree .
+
+$(function(){
+
+  // $('.amazon_list .btn-to-saddlebag').click(function(event) {
+
+   
+
+
+
+  // $('.registration').click(function() {
+  //   alert("test");
+  //   dialog( "open" );
+  // });
+  
+});

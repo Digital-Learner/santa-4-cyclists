@@ -20,5 +20,9 @@ $(function() {
     }
 
   });
+  $('.btn-register').click(function(e) {
+    // alert("Register");
+    e.modal("<div><h1>SimpleModal</h1></div>")
+  });
 })
 

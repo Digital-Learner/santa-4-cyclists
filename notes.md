@@ -75,3 +75,18 @@ Finished in 0.439125 seconds.
 To get this to pass we had the initial error occuring as we were mistakenly passing the session to the delete method. We then changed this to just use `delete :destroy, { :id, @user }` which figures out that we want the @user.id.
 
 The next message puts us back into TDD design mode as it told us we had not destroy method in our sessions controller. From there its just a case of deleting the session and redirecting to the root_url in this case
+
+
+1. Do we want to make the users resubmit the queries to Amazon? Probably not, so we would need to hold onto where the request came from & after they have signed in then we should send them back to where they were with the correct request. How can we do this in an Ajax way? Do we need to move to a Gem like PAX?
+
+2. Make the front pages consistent
+3. Figure out how to use many-to-many relationships. Determine if we really need them for the user-items links.
+4. Socalise - tweet/fb about what has been selected.
+5. User profiles
+6. Invite gift purchasers (send link with user related login)
+7. Use email to send updates if user/gift purchaser opts in / request them
+8. Make some notes on testing and share with group :options [uncommitted, recent]
+9. How do we refactor the code into a gem for authorisation? What is the process and are there any good tutorials that are up-to-date for Rails 3.2? Most seem to be purely Ruby focused!
+10. Create better factories. Look at how Factory-Girl & Machinist gems do this. Try to understand the processes they use
+11. 
+
