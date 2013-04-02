@@ -58,11 +58,13 @@ $(function(){
           bValid = bValid && checkLength( password, "password", 6, 16 );
           bValid = bValid && checkLength( password_confirmation, "password_confirmation", 6, 16 );
 
-          if ( bValid ) {
-            $.post('/users', { user: { name: name.val(), email: email.val(), password: password.val(), password_confirmation: password_confirmation.val() } });
-            $( this ).dialog( "close" );
+        if ( bValid ) {
+          var params = { user: { name: name.val(), email: email.val(), password: password.val(), password_confirmation: password_confirmation.val() } };
+          var callback = function() {
+            window.location = '/';
           }
-
+          $.post('/users', params, callback);
+        }
       }
     }
   });

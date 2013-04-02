@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :authenticate, :only => [ :update, :destroy, :edit, :show ]
+  # before_filter :authenticate, :only => [ :update, :destroy, :edit, :show ]
 
   def index
     @users = User.all
@@ -15,13 +15,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    # how to do in the controller
-    # if params[:user][:password].blank? || (params[:user][:password] != params[:user][:password_confirmation])
-    #   render :new
-    #   return
-    # end
     @user = User.new(params[:user])
     if @user.save
+      sign_in @user
       redirect_to @user
     else
       render :new
@@ -47,12 +43,10 @@ class UsersController < ApplicationController
     #  make sure this user matches the current user
     redirect_to users_path unless @user.id == current_user.id
     system("say 'Are you sure about that!'")
-      @user.delete
-      flash[:success] = "profile deleted"
-      session[:user_id] = nil
-      redirect_to root_url
-    # end
-
+    @user.delete
+    flash[:success] = "profile deleted"
+    session[:user_id] = nil
+    redirect_to root_url
   end
 end
 
