@@ -16,16 +16,11 @@
 //= require_tree .
 
 $(function(){
-
-  // $('.amazon_list .btn-to-saddlebag').click(function(event) {
-
-   
-
-
-
-  // $('.registration').click(function() {
-  //   alert("test");
-  //   dialog( "open" );
-  // });
-  
+  $('.registration').click(function(e) {
+    e.preventDefault();
+    $( "#modal-registration" ).dialog({
+      height: 140,
+      modal: true
+    });
+  });
 });
