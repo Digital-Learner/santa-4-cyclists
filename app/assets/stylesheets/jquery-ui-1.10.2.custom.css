@@ -497,7 +497,7 @@ button.ui-button::-moz-focus-inner {
 	position: relative;
 	border: 0;
 	padding: .5em 1em;
-	background: none;
+	background: rgb(138, 29, 29);
 	overflow: auto;
 }
 .ui-dialog .ui-dialog-buttonpane {
@@ -786,6 +786,7 @@ body .ui-tooltip {
 .ui-widget {
 	font-family: Arial,sans-serif;
 	font-size: 1.1em;
+	background-color: rgb(138, 29, 29);
 }
 .ui-widget .ui-widget {
 	font-size: 1em;
@@ -799,7 +800,7 @@ body .ui-tooltip {
 }
 .ui-widget-content {
 	border: 1px solid #eeeeee;
-	background: #ffffff url(images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
+	background: rgb(138, 29, 29) url(images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x;
 	color: #333333;
 }
 .ui-widget-content a {
@@ -807,7 +808,7 @@ body .ui-tooltip {
 }
 .ui-widget-header {
 	border: 1px solid #e3a1a1;
-	background: #cc0000 url(images/ui-bg_highlight-soft_15_cc0000_1x100.png) 50% 50% repeat-x;
+	background: /*#cc0000*/ url(images/ui-bg_highlight-soft_15_cc0000_1x100.png) 50% 50% repeat-x;
 	color: #ffffff;
 	font-weight: bold;
 }

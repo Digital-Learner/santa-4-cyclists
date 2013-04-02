@@ -14,17 +14,20 @@
   </nav>
 </header>
 
-<div id="dialog-form" title="Create new user">
+<div id="dialog-form" title="Tell Santa who you are">
   <p class="validateTips">All form fields are required.</p>
 
   <form>
   <fieldset>
     <label for="name">Name</label>
-    <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" />
+    <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all"  placeholder = "tell santa your name ... "/>
     <label for="email">Email</label>
-    <input type="text" name="email" id="email" value="" class="text ui-widget-content ui-corner-all" />
+    <input type="text" name="email" id="email" value="" class="text ui-widget-content ui-corner-all"  placeholder = "what's your email ... "/>
     <label for="password">Password</label>
-    <input type="password" name="password" id="password" value="" class="text ui-widget-content ui-corner-all" />
-  </fieldset>
+    <input type="password" name="password" id="password" value="" class="text ui-widget-content ui-corner-all" placeholder = "some secret ... " />
+    <label for="password">Password Confirmation</label>
+    <input type="password" name="password_confirmation" id="password_confirmation" value="" class="text ui-widget-content ui-corner-all" placeholder = "same secret ... " />
+<!--     <input type="submit" value="Register" class = "btn btn-register"/>
+ -->  </fieldset>
   </form>
 </div>
