@@ -13,63 +13,43 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require utilities
 //= require_tree .
 
-$(function(){
-  var name = $( "#name" ),
-  email = $( "#email" ),
-  password = $( "#password" ),
-  password_confirmation = $( "#password_confirmation" ),
-  allFields = $( [] ).add( name ).add( email ).add( password ).add( password_confirmation ),
-  tips = $( ".validateTips" );
+// $(function(){
+//   // var name = $( "#name" ),
+//   // email = $( "#email" ),
+//   // password = $( "#password" ),
+//   // password_confirmation = $( "#password_confirmation" ),
+//   // allFields = $( [] ).add( name ).add( email ).add( password ).add( password_confirmation )  
 
-  function updateTips( t ) {
-    tips
-      .text( t )
-      .addClass( "ui-state-highlight" );
-    // setTimeout(function() {
-    //   tips.removeClass( "ui-state-highlight", 1500 );
-    // }, 500 );
-  }
+//   $( "#dialog-form" ).dialog({
+//     autoOpen: false,
+//     height: 575,
+//     width: 350,
+//     modal: true,
+//     buttons: {
+//       "Register": function() {
+//         var bValid = true;
+//           allFields.removeClass( "ui-state-error" );
 
-  function checkLength( o, n, min, max ) {
-    if ( o.val().length > max || o.val().length < min ) {
-      o.addClass( "ui-state-error" );
-      updateTips( "Length of " + n + " must be between " +
-        min + " and " + max + "." );
-      return false;
-    } else {
-      return true;
-    }
-  }
+//           bValid = bValid && Utilities.checkLength( name, "username", 1, 25 );
+//           bValid = bValid && Utilities.checkLength( email, "email", 6, 80 );
+//           bValid = bValid && Utilities.checkLength( password, "password", 6, 16 );
+//           bValid = bValid && Utilities.checkLength( password_confirmation, "password_confirmation", 6, 16 );
 
-  $( "#dialog-form" ).dialog({
-    autoOpen: false,
-    height: 575,
-    width: 350,
-    modal: true,
-    buttons: {
-      "Register": function() {
-        var bValid = true;
-          allFields.removeClass( "ui-state-error" );
-
-          bValid = bValid && checkLength( name, "username", 1, 25 );
-          bValid = bValid && checkLength( email, "email", 6, 80 );
-          bValid = bValid && checkLength( password, "password", 6, 16 );
-          bValid = bValid && checkLength( password_confirmation, "password_confirmation", 6, 16 );
-
-        if ( bValid ) {
-          var params = { user: { name: name.val(), email: email.val(), password: password.val(), password_confirmation: password_confirmation.val() } };
-          var callback = function() {
-            window.location = '/';
-          }
-          $.post('/users', params, callback);
-        }
-      }
-    }
-  });
-  $('.registration').click(function(e) {
-    e.preventDefault();
-    $( "#dialog-form" ).dialog("open");
-  });
-});
+//         if ( bValid ) {
+//           var params = { user: { name: name.val(), email: email.val(), password: password.val(), password_confirmation: password_confirmation.val() } };
+//           var callback = function() {
+//             window.location = '/';
+//           }
+//           $.post('/users', params, callback);
+//         }
+//       }
+//     }
+//   });
+//   // $('.registration').click(function(e) {
+//   //   e.preventDefault();
+//   //   $( "#dialog-form" ).dialog("open");
+//   // });
+// });
