@@ -146,10 +146,10 @@ img.align-center {
   transition: all 1.0s linear;
 }
 #f1_container:hover #f1_card, #f1_container.hover_effect #f1_card {
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
-  transform: rotateY(180deg);
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+  transform: rotateX(180deg);
 
   -webkit-box-shadow: -5px 5px 5px #aaa;
   -moz-box-shadow: -5px 5px 5px #aaa;
@@ -166,13 +166,13 @@ img.align-center {
 }
 .face.back {
   display: block;
-  -webkit-transform: rotateY(180deg);
+  -webkit-transform: rotateX(180deg);
   -webkit-box-sizing: border-box;
-  -moz-transform: rotateY(180deg);
+  -moz-transform: rotateX(180deg);
   -moz-box-sizing: border-box;
-  -o-transform: rotateY(180deg);
+  -o-transform: rotateX(180deg);
   -o-box-sizing: border-box;
-  transform: rotateY(180deg);
+  transform: rotateX(180deg);
   box-sizing: border-box;
   padding: 10px;
   color: white;
