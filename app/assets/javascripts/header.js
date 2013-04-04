@@ -53,11 +53,11 @@
             if (data.loggedIn == 'ok')
               Utilities.triggerLogIn();
             else {
-              
+              alert("Login Failed, please try again");
             }
             $( '#login-form' ).dialog( "close" );
           }
-          $.post('/sessions', params, callback);
+          $.post('/sessions', params, callback, "json");
         }
       };
       $( "#login-form" ).dialog({

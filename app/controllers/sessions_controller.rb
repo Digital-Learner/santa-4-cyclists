@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       sign_in @user
       respond_to do |format|
         format.html { redirect_to @user }
-        format.json { render :json => {:loggedIn => :ok}}
+        format.json { render :json => {:loggedIn => "ok"}}
       end      
     else
       respond_to do |format|
