@@ -16,5 +16,10 @@ var Utilities = {
     } else {
       return true;
     }
+  },
+  // Add a user-defined event to observe if a user is logged in.
+  triggerLogIn: function() {
+    var e = jQuery.Event('userLoggedIn');
+    $('body').trigger(e);
   }
 }

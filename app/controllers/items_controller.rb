@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
   # before_filter :authenticate, :only => [ :create, :destroy, :show ]
 
   before_filter :signed_in_user, only: [:create, :destroy]
-  before_filter :correct_user, only: [:create]
+  # before_filter :correct_user, only: [:create]
 
   # after_filter :check_with_amazon, :only => [:create, :update]
 

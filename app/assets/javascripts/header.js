@@ -47,8 +47,14 @@
 
         if ( bValid ) {
           var params = { session: { email: email.val(), password: password.val() } };
-          var callback = function() {
+          var callback = function(data) {
             // window.location = '/';
+            // Add a user-defined event to observe if a user is logged in.
+            if (data.loggedIn == 'ok')
+              Utilities.triggerLogIn();
+            else {
+              
+            }
             $( '#login-form' ).dialog( "close" );
           }
           $.post('/sessions', params, callback);
@@ -133,7 +139,7 @@
 
 
 
-
+// e = jQuery.Event("userLoggedIn")
 
 // $
 // function (e,t){return new b.fn.init(e,t,r)}
