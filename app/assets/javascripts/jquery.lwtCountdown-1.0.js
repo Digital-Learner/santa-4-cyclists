@@ -73,6 +73,11 @@
 			targetTime.setSeconds(options.targetOffset.sec + targetTime.getSeconds());
 		}
 
+		// var nowTime = new Date(); --- new code added 78-81 below
+
+		if(options.serverStartTime)
+		var nowTime = new Date(options.serverStartTime);
+		else
 		var nowTime = new Date();
 
 		diffSecs = Math.floor((targetTime.valueOf()-nowTime.valueOf())/1000);
