@@ -1,20 +1,22 @@
 nav ul li {
   display: inline-block;
   width: auto;
+  font-family: Courier;
   font-weight: bold;
-  font-size: 30px;
-  border: 5px solid white;
+  font-size: 22px;
+  // border: 5px solid white;
   // margin: 2.5px 0;
-  margin: 0 2.5px;
-  padding: 15px 10px;
+  margin: 0 10px;
+  padding: 15px 25px;
   background-color: white;
-  // opacity: 1;
-  color: blue;
+  a {  
+    color: !important green;
+    text-decoration: none;
+  }
 }
 
 nav {
-  background-color: black;
-  border: 5px solid red;
+  background-color: rgba(0, 0, 0, 0.41);
+  border: 5px solid #8a1d1d;
   color: yellow;
-  opacity: 0.45;
 }
