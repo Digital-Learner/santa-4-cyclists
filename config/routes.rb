@@ -9,11 +9,11 @@ Santa4Cyclists::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :products
 
-  get "/registration", to: 'users#new'
-  get '/login',        to: 'sessions#new'
-  get '/logout',       to: 'sessions#destroy'
-  get '/search',       to: 'static_pages#search'
-
+  get "/registration",   to: 'users#new'
+  get '/login',          to: 'sessions#new'
+  get '/logout',         to: 'sessions#destroy'
+  get '/search',         to: 'static_pages#search'
+  get '/nav_bar_reload', to: 'static_pages#nav_bar_reload'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

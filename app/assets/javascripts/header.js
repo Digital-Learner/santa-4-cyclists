@@ -48,11 +48,11 @@
         if ( bValid ) {
           var params = { session: { email: email.val(), password: password.val() } };
           var callback = function(data) {
-            // window.location = '/';
             // Add a user-defined event to observe if a user is logged in.
-            if (data.loggedIn == 'ok')
+            if (data.loggedIn == 'ok') {
               Utilities.triggerLogIn();
-            else {
+              $('header').load("/nav_bar_reload header");
+            } else {
               alert("Login Failed, please try again");
             }
             $( '#login-form' ).dialog( "close" );
@@ -135,28 +135,4 @@
 //     Login.bindRegisterClick();
 //   }
 // // Login.run;
-// }  
-
-
-
-// e = jQuery.Event("userLoggedIn")
-
-// $
-// function (e,t){return new b.fn.init(e,t,r)}
-// e = jQuery.Event("click")
-// b.Event {type: "click", timeStamp: 1365007909229, jQuery19104757884149439633: true, isDefaultPrevented: function, isPropagationStopped: function…}
-// e = jQuery.Event("userLoggedIn")
-// b.Event {type: "userLoggedIn", timeStamp: 1365007914804, jQuery19104757884149439633: true, isDefaultPrevented: function, isPropagationStopped: function…}
-// $('body').trigger(e);
-// [
-// <body class=​"api jquery archive category category-event-object category-22 listing single-author">​…​</body>​
-// ]
-// $('body').on('userLoggedIn', function() {console.log("user logged in event fired")});
-// [
-// <body class=​"api jquery archive category category-event-object category-22 listing single-author">​…​</body>​
-// ]
-// $('body').trigger(e);
-// user logged in event fired
-// [
-// <body class=​"api jquery archive category category-event-object category-22 listing single-author">​…​</body>​
-// ]
+// }

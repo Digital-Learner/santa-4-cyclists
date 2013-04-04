@@ -16,6 +16,10 @@ class StaticPagesController < ApplicationController
 
   end
 
+  def nav_bar_reload
+    render 'layouts/_header', layout: false
+  end
+
   # protected
 
   #   def searched_for_item_check_with_amazon
