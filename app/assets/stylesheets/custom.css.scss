@@ -66,6 +66,23 @@ form {
   }
 }
 
+#product-search-box {
+  label {
+    color: white;
+    font-family: Courier;
+    font-size: 20px;
+    text-align: center;
+  }
+  input {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  submit {
+    
+  }
+
+}
+
 /* Countdown timer till pressie time! */
 
 #countdown_dashboard {
@@ -112,6 +129,13 @@ form {
 img.align-center {
   display: block;
   margin: 0 auto;
+}
+
+#jersey-reverse {
+  position: relative;
+  float: left;
+  height: 95%;
+
 }
 
 // div.ui-dialog.ui-widget.ui-dialog-content.ui-widget-content {
