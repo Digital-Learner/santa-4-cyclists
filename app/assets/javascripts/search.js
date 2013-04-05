@@ -1,5 +1,10 @@
 $(function() {
-  $('.amazon_list .btn-to-saddlebag').click(function(event) {
+// $(document).on('click', '.loaded-via-ajax', function(){
+//     alert($(this).attr('id'));
+// });
+
+  $(document).on('click', '.amazon_list .btn-to-saddlebag', function(event) {
+    alert('u wanna add this to Santa\'s sac?');
     var logged_in = '';
     var name = $(this).parents('.amazon_list').find('li.name').text();
     var url = $(this).parent().parent().find('li.url input').val();
@@ -18,8 +23,10 @@ $(function() {
       addToBag(name, url);
     }
   });
-
+});
+  
   // Add functionality for searching via AJAX
+$(function() {
   $('#product-search-box').on('submit', function(e) {
     e.preventDefault();
     // debugger;
@@ -27,10 +34,14 @@ $(function() {
     var params = { q : search_string };
     console.log (params);
     var callback = function(data, status, xhr) {
+      console.log (data);
+      console.log (status);
+      console.log (xhr);
+      alert(status);
       $('.inner-container').html(data);
     }
     $.get('/search', params, callback, "html");
-
+  });
     // $.get(URL,data,function(data,status,xhr),dataType)
     // URL Required. Specifies the URL you wish to request
     // data  Optional. Specifies data to send to the server along with the request
@@ -49,5 +60,5 @@ $(function() {
     // "json" - Runs the response as JSON, and returns a JavaScript object
     // "jsonp" - Loads in a JSON block using JSONP. Will add an "?callback=?" to the URL to specify the callback
 
-  });
-})
+});
+

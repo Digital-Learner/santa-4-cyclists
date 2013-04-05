@@ -38,7 +38,8 @@
       var email = $( "#email" );
       var password = $( "#password" );
       var allFields = $( [] ).add( email ).add( password );
-      var loginHandler = function() {
+      var loginHandler = function(e) {
+        e.preventDefault();
         var bValid = true;
         $('#login-form input').removeClass( "ui-state-error" );
 
