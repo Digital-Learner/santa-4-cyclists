@@ -46,7 +46,7 @@
       <img id="pulling-santa" class="align-center" src="/assets/PullingSanta150.jpg"/>
     </div>
     <div class="back face center">
-      <img id="jersey-reverse" src="assets/santa_claus_jersey_back.jpg"/>
+      <%= render 'search_for' %>
       <%= form_tag("/search", :method => "get", id: 'product-search-box') do %>
         <%= label_tag(:q, "I'm hoping to find this in my stocking...") %>
         <%= text_field_tag(:q) %>

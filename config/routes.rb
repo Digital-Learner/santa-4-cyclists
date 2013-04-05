@@ -14,6 +14,7 @@ Santa4Cyclists::Application.routes.draw do
   get '/logout',         to: 'sessions#destroy'
   get '/search',         to: 'static_pages#search'
   get '/nav_bar_reload', to: 'static_pages#nav_bar_reload'
+  get '/amazon_success', to: 'static_pages#amazon_success'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

@@ -4,11 +4,27 @@ class StaticPagesController < ApplicationController
 
   def home
   end
-
+  
   def search
     @searched_item = params[:q]
-    ad_builder(@searched_item)
-    render '_searched_item'#, :local @ 
+    begin
+      ad_builder(@searched_item)
+      respond_to do |format|
+        format.html { render '_searched_item', layout: !request.xhr?}
+      # format.json { render :json => {:aAWSResult => @amazon_list}}
+      end
+
+      # render '_searched_item', layout: !request.xhr?
+    rescue
+      if Amazon::AWS::Error
+        # render :json => {:aAWSResult => "notFound"}
+        respond_to do |format|
+          # format.html {}
+          # format.json { render :json => {:aAWSResult => "notFound"}}
+          render "notFound"
+        end
+      end
+    end 
     # currently there is no persistance of user searches,
     # only items selected. We probably want to detect if a user is signed in at this point
     # if they are not then we want to save their search and get them to signin
@@ -18,6 +34,10 @@ class StaticPagesController < ApplicationController
 
   def nav_bar_reload
     render 'layouts/_header', layout: false
+  end
+
+  def amazon_success
+    render '_searched_item', layout: false
   end
 
   # protected

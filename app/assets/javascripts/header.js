@@ -48,6 +48,7 @@
         if ( bValid ) {
           var params = { session: { email: email.val(), password: password.val() } };
           var callback = function(data) {
+            alert('In login callback');
             // Add a user-defined event to observe if a user is logged in.
             if (data.loggedIn == 'ok') {
               Utilities.triggerLogIn();
