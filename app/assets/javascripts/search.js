@@ -50,8 +50,7 @@ $(function() {
         $('.inner-container').html(data);
       }
     }
-    $.get('/search', params, callback, "html");
-    // $.getJSON('/search', params, callback);
+    $.getJSON('/search', params, callback);
     // $('#results').load("/search", params).fail(function() {alert("not found")})
   });
 });
