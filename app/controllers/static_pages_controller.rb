@@ -11,10 +11,17 @@ class StaticPagesController < ApplicationController
       ad_builder(@searched_item)
       respond_to do |format|      
         format.html { render '_searched_item', layout: !request.xhr?}
+        # format.json { render :json => {:html => render_to_string '_searched_item', layout: false}}
       end
     rescue
       if Amazon::AWS::Error
         render :json => {:aAWSResult => "notFound"}
+        # render :status => 404
+        # respond_to do |format|
+        #   # format.html {}
+        #   # format.json { render :json => {:aAWSResult => "notFound"}}
+        #   format.html { render "notFound" }
+        # end
       end
     end
   end

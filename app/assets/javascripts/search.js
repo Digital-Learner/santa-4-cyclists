@@ -30,6 +30,11 @@ $(function() {
     var params = { q : search_string };
     console.log (params);
     var callback = function(data, status, xhr) {
+      // if (data.html) {
+      //   $("#results").html(data.html);
+      // } else {
+      //   alert(data.aAWSResult);
+      // }
       console.log (data);
       console.log (status);
       console.log (xhr);
@@ -46,6 +51,8 @@ $(function() {
       }
     }
     $.get('/search', params, callback, "html");
+    // $.getJSON('/search', params, callback);
+    // $('#results').load("/search", params).fail(function() {alert("not found")})
   });
 });
 
