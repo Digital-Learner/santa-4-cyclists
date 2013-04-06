@@ -2,9 +2,9 @@
 jQuery(document).ready(function() {
   $('#countdown_dashboard').countDown({
     targetOffset: {
-      'day':    0,
-      'month':  0,
-      'year':   0,
+      'day':    1,
+      'month':  1,
+      'year':   2013,
       'hour':   0,
       'min':    0,
       'sec':    0

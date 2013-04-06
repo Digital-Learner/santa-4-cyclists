@@ -15,7 +15,7 @@ class StaticPagesController < ApplicationController
       end
     rescue
       if Amazon::AWS::Error
-        render :json => {:aAWSResult => "notFound"}
+        render :json => {:aAWSResult => "notFound"}, :status => 422
         # render :status => 404
         # respond_to do |format|
         #   # format.html {}
