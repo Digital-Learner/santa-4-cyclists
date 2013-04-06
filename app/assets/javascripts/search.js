@@ -5,10 +5,10 @@ $(function() {
     var url = $(this).parent().parent().find('li.url input').val();
     var addToBag = function(name, url) {
       $.post('/items', { item: { name: name, url: url } })
-      .done(function(data) {
-        // would like to use Flash in here, how do we do this?
-        alert('Santa has added ' + name + ' to his bulging saddlebag');
-      });
+      // .done(function(data) {
+      //   // would like to use Flash in here, how do we do this?
+      //   alert('Santa has added ' + name + ' to his bulging saddlebag');
+      // });
     }
 
     logged_in = $('header nav ul li').find('.registration').text();

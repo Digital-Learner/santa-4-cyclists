@@ -7,6 +7,19 @@ class ApplicationController < ActionController::Base
 
   # helper_method :current_user
 
+  # http://stackoverflow.com/a/7414578/1149642
+  after_filter :flash_to_headers
+
+  def flash_to_headers
+    if request.xhr?
+      #avoiding XSS injections via flash
+      flash_json = Hash[flash.map{|k,v| [k,v] }].to_json
+      response.headers['X-Flash-Messages'] = flash_json
+      flash.discard
+    end
+  end
+
+
   protected
 
     def signed_in_user

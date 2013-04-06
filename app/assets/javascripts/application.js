@@ -16,4 +16,19 @@
 //= require utilities
 //= require_tree .
 
+$(document).ajaxComplete(function(event, request){
+  event.preventDefault();
+  $('div.alert').remove();
+  var flash = $.parseJSON(request.getResponseHeader('X-Flash-Messages'));
+  if(!flash) return;
+  console.log( flash )
+  // if(flash.notice) { /* code to display the 'notice' flash */ $('.alert .alert-notice').html(flash.notice); }
+  if(flash.error) { 
+    $('.container').prepend('<div class="alert alert-error"></div>');
+    $('.alert').html(flash.error); 
+  }
+
+  // if(flash.error) {  code to display the 'error' flash  alert(flash.error); }
+  //so forth
+});
 

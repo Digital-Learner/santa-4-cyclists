@@ -10,6 +10,8 @@ ul {
     background-color: white;
     color: black;
     float: left;
+    height: 225px;
+    position: relative;
     li {
       color: red;
     }
@@ -17,6 +19,15 @@ ul {
       margin: 5%;
       border: 1px dashed brown;
       // probably want to do something that allows the users to click anywhere on the item
+    }
+    li.name {
+      // height: 75px;
+      padding-left: 10px;
+    }
+    li.price {
+      position: absolute;
+      bottom: 45px;
+      padding-left: 10px;
     }
   }
 }
@@ -29,4 +40,7 @@ div.add .btn-to-saddlebag {
   moz-border-radius: 0;
   o-border-radius: 0;
   border-radius: 0;
+  position: absolute;
+  bottom: 0;
+  width: 97%;
 }

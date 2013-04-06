@@ -9,13 +9,13 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       sign_in @user
       respond_to do |format|
-        format.html { redirect_to @user }
+        format.html { redirect_to @user, notice: "You are now able to save items" }
         format.json { render :json => {:loggedIn => "ok"}}
       end      
     else
       respond_to do |format|
         format.html do
-          flash[:error] = "Invalid email/password combination"
+          flash.now[:error] = "Invalid email/password combination"
           render :new
         end
         format.json do
@@ -28,6 +28,6 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     redirect_to root_url
-    system("say -v 'Vicki' 'Bye bye, come back to Santa 4 Cyclists soon!'")
+    # system("say -v 'Vicki' 'Bye bye, come back to Santa 4 Cyclists soon!'")
   end
 end

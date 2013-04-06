@@ -50,7 +50,7 @@
       <%= form_tag("/search", :method => "get", id: 'product-search-box') do %>
         <%= label_tag(:q, "I'm hoping to find this in my stocking...") %>
         <%= text_field_tag(:q) %>
-        <%= submit_tag("I've been good this year!") %>
+        <%= submit_tag("I've been good this year!", class: "btn") %>
       <% end %>
     </div>
   </div>

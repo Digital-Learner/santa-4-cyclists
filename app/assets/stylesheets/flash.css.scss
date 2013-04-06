@@ -1,0 +1,18 @@
+.alert {
+  border: 3px solid yellow;
+  padding: 10px 15px;
+  background-color: lightYellow;
+  margin: 0 5px;
+}
+
+.alert-error {  
+  background-color: lightPink;
+}
+
+.alert-success {
+  background-color: lightGreen;
+}
+
+.alert-notice {
+  background-color: lightBlue;
+}
