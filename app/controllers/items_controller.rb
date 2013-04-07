@@ -67,12 +67,15 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
-    @item = Item.find(params[:id])
+    # :id here represents the name so we don't have to change the routes
+    @item = Item.find_by_name(params[:id])
+    p params
+    logger.debug @item.inspect
     @item.destroy
 
     respond_to do |format|
       format.html { redirect_to items_url }
-      format.json { head :no_content }
+      format.json { head :no_content, status: 200 }
     end
   end
 

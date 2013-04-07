@@ -1,3 +1,4 @@
+// Add item to Santa's Sack
 $(function() {
   $(document).on('click', '.amazon_list .btn-to-saddlebag', function(event) {
     var logged_in = '';
@@ -20,10 +21,35 @@ $(function() {
     }
     // $(this).addClass('btn-has-been-added');
     // var linkAddRemoveString = $('.add a:first').text();
-    $(this).html("Santa's Saddlebag  <span class='btn-remove'>&nbsp;-&nbsp;</span>" );
+    // alert(linkAddRemoveString);
     $(this).removeClass('btn-to-saddlebag').addClass('btn-remove-from-saddlebag');
+    $(this).html("Santa's Saddlebag<span class='btn-remove'>&nbsp;-&nbsp;</span>");
   });
 });
+
+// Remove Item from Santa's Sack
+$(function() {
+  $(document).on('click', '.amazon_list .btn-remove-from-saddlebag', function(event) {
+    event.preventDefault();
+    var removeItem = $(this).attr('url');
+    var name = $(this).parents('.amazon_list').find('li.name').text();
+    var removeItemURL = $(this).parent().parent().find('li.url input').val();
+    var clickedItem = $(this);
+
+    if ( confirm("Are you sure you want to delete this Item?") )
+      $.ajax({
+        url: "/items/" + name,
+        type: "post",
+        dataType: "json",
+        data: {"_method":"delete"}
+      }).success(function(data) {
+          $(clickedItem).removeClass('btn-remove-from-saddlebag').addClass('btn-to-saddlebag');
+          $(clickedItem).html("Santa's Saddlebag<span class='btn-plus'>&nbsp;+&nbsp;</span>");
+        });
+    return false;
+  });
+});
+
   
   // Add functionality for searching via AJAX
 $(function() {
