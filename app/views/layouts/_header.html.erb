@@ -10,6 +10,7 @@
         <li><%= link_to "Registration", registration_path, class: "registration" %></li>
         <li><%= link_to "I want in!", login_path, class: "not_logged_in" %></li>
       <% end %>
+      <li id="amazon-locale">Amazon Region: <%= select_tag(:aaws_locale_id, options_for_select([['US', 'us'], ['UK', 'uk']], 'uk')) %></li>
     </ul>
   </nav>
 </header>

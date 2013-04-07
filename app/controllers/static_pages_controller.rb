@@ -6,9 +6,11 @@ class StaticPagesController < ApplicationController
   end
 
   def search
+    p params
     @searched_item = params[:q]
+    @amazon_locale = params[:aAWSlocale]
     begin
-      ad_builder(@searched_item)
+      ad_builder(@searched_item, @amazon_locale)
       respond_to do |format|      
         format.html { render '_searched_item', layout: !request.xhr?, notice: "Looks like your in luck"}
         # format.json { render :json => {:html => render_to_string '_searched_item', layout: false}}

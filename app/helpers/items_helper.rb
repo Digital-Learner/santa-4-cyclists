@@ -4,12 +4,12 @@ module ItemsHelper
   include Amazon::AWS
   include Amazon::AWS::Search
 
-  def ad_builder(lookup_item)
+  def ad_builder(lookup_item, locale)
     is = ItemSearch.new( 'All', { 'Keywords' => lookup_item } )
     rg = ResponseGroup.new( 'Medium' )
     # debugger
     req = Request.new#(ENV['AWS_KEY_ID'])
-    req.locale = 'us'
+    req.locale = locale
     resp = req.search( is, rg )
     amaz_items = resp.item_search_response.items.item
     @amazon_list = []

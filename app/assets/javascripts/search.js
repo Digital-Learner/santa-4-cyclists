@@ -64,7 +64,8 @@ $(function() {
     e.preventDefault();
     // debugger;
     var search_string = $(this).find('#q').val();
-    var params = { q : search_string };
+    var amazonSearchLocale = $('select#aaws_locale_id').val();
+    var params = { q : search_string, aAWSlocale : amazonSearchLocale };
     console.log (params);
     $.get('/search', params, "html")
       .success(function(data) {
