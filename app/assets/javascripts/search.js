@@ -18,6 +18,9 @@ $(function() {
     } else {
       addToBag(name, url);
     }
+    // $(this).addClass('btn-has-been-added');
+    // var linkAddRemoveString = $('.add a:first').text();
+    $(this).html("Santa's Saddlebag  <span class='btn-remove'>&nbsp;-&nbsp;</span>" );
   });
 });
   
@@ -32,6 +35,8 @@ $(function() {
     $.get('/search', params, "html")
       .success(function(data) {
         $('.inner-container').html(data);
+        var linkAddRemoveString = $('.add a:first').text();
+        $('.add a').html(linkAddRemoveString + '<span class="btn-plus">&nbsp;+&nbsp;</span>');
       })
       .error(function(data){
           $('img#jersey-reverse').hide()
