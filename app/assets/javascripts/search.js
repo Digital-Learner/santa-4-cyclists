@@ -21,6 +21,7 @@ $(function() {
     // $(this).addClass('btn-has-been-added');
     // var linkAddRemoveString = $('.add a:first').text();
     $(this).html("Santa's Saddlebag  <span class='btn-remove'>&nbsp;-&nbsp;</span>" );
+    $(this).removeClass('btn-to-saddlebag').addClass('btn-remove-from-saddlebag');
   });
 });
   
