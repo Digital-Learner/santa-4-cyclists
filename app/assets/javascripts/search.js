@@ -1,11 +1,22 @@
 // Add item to Santa's Sack
 $(function() {
   $(document).on('click', '.amazon_list .btn-to-saddlebag', function(event) {
+    event.preventDefault();
+    var clickedItem = $(this);
     var logged_in = '';
     var name = $(this).parents('.amazon_list').find('li.name').text();
     var url = $(this).parent().parent().find('li.url input').val();
+    var toggleLink = function() {
+      $(clickedItem).removeClass('btn-to-saddlebag').addClass('btn-remove-from-saddlebag'),
+      $(clickedItem).html("Santa's Saddlebag<span class='btn-remove'>&nbsp;-&nbsp;</span>");
+    }
     var addToBag = function(name, url) {
-      $.post('/items', { item: { name: name, url: url } })
+      $.post( '/items', 
+              { item: { name: name, url: url } }
+            )
+      .success(function(data) {
+        toggleLink();
+       });
       // .done(function(data) {
       //   // would like to use Flash in here, how do we do this?
       //   alert('Santa has added ' + name + ' to his bulging saddlebag');
@@ -16,14 +27,10 @@ $(function() {
     if (logged_in === 'Registration') {
       $('.not_logged_in').click();
       $('body').on("userLoggedIn", function() { addToBag(name, url) });
-    } else {
-      addToBag(name, url);
-    }
+    } else { addToBag(name, url) }
     // $(this).addClass('btn-has-been-added');
     // var linkAddRemoveString = $('.add a:first').text();
     // alert(linkAddRemoveString);
-    $(this).removeClass('btn-to-saddlebag').addClass('btn-remove-from-saddlebag');
-    $(this).html("Santa's Saddlebag<span class='btn-remove'>&nbsp;-&nbsp;</span>");
   });
 });
 
